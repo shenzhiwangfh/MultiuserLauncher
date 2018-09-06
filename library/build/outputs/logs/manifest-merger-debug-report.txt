@@ -1,0 +1,27 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml:1:1-5:12
+INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml:1:1-5:12
+INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml:1:1-5:12
+	package
+		ADDED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml:2:5-47
+		INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+		INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml:1:11-69
+application
+ADDED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml:4:5-20
+uses-sdk
+INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+		ADDED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+		INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+		ADDED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
+		INJECTED from /Users/shenzhiwang/AndroidStudioProjects/MultiuserLauncher/library/AndroidManifest.xml
