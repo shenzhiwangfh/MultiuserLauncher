@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private HashMap<UserHandle, List<LauncherActivityInfo>> maps = new HashMap<>();
     private ArrayList<Fragment> fragments;
 
-    private UserManagerCompat compat;
+    //private UserManagerCompat compat;
 
     // 定义ViewPager对象
     //private ViewPager viewPager;
@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        compat = new UserManagerCompat(this);
         initMultiuser();
 
         PagerSlidingTabStrip tabs = findViewById(R.id.tabs);
@@ -58,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initMultiuser() {
+        UserManagerCompat compat = new UserManagerCompat(this);
         compat.enableAndResetCache();
         users = compat.getUserProfiles();
 

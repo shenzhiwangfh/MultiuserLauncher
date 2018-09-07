@@ -1,8 +1,12 @@
 package com.tcl.multiuserlauncher;
 
 import android.app.ActivityManager;
+import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.LauncherActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.annotation.Nullable;
@@ -17,12 +21,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class AppsFragment extends Fragment {
+    private final static String TAG = "AppsFragment";
 
     private List<LauncherActivityInfo> apps;
-    private int id;
+    private int id = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +59,8 @@ public class AppsFragment extends Fragment {
         private Context context;
         private List<LauncherActivityInfo> list;
         private int iconDpi;
+        //private List<ApplicationInfo> applications;
+        //private PackageManager mPm;
 
         public AppsAdapter(Context context, List<LauncherActivityInfo> list) {
             this.context = context;
@@ -59,6 +68,23 @@ public class AppsFragment extends Fragment {
 
             ActivityManager activityManager = (ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);
             iconDpi = activityManager.getLauncherLargeIconDensity();
+
+            /*
+            mPm = context.getPackageManager();
+            try {
+                Method getInstalledApplications = PackageManager.class.getMethod("getInstalledApplicationsAsUser", int.class, int.class);
+                applications = (List<ApplicationInfo>) getInstalledApplications.invoke(mPm, PackageManager.GET_META_DATA, id);
+            } catch ( NoSuchMethodException e ) {
+                e.printStackTrace();
+                Log.e(TAG, "NoSuchMethodException,e=" + e);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                Log.e(TAG, "IllegalAccessException,e=" + e);
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+                Log.e(TAG, "InvocationTargetException,e=" + e);
+            }
+            */
         }
 
         @Override
@@ -83,7 +109,7 @@ public class AppsFragment extends Fragment {
                 vh = new ViewHolder();
                 view = LayoutInflater.from(context).inflate(R.layout.item_app, null);
                 vh.icon = view.findViewById(R.id.icon);
-                vh.user = view.findViewById(R.id.user);
+                //vh.user = view.findViewById(R.id.user);
                 vh.title = view.findViewById(R.id.title);
                 vh.packageName = view.findViewById(R.id.package_name);
                 view.setTag(vh);
@@ -92,18 +118,22 @@ public class AppsFragment extends Fragment {
             }
 
             LauncherActivityInfo info = list.get(i);
-            vh.icon.setImageDrawable(info.getIcon(iconDpi));
-            vh.user.setImageResource(R.drawable.ic_user);
+            //for(ApplicationInfo application : applications) {
+            //    application.loadIcon(mPm);
+            //    //if(info.getBadgedIcon())
+            //}
+            vh.icon.setImageDrawable(info.getBadgedIcon(iconDpi));
+            //vh.user.setImageResource(R.drawable.ic_user);
             vh.title.setText(info.getLabel());
             vh.packageName.setText(info.getName());
 
-            vh.user.setVisibility(id > 0 ? View.VISIBLE : View.GONE);
+            //vh.user.setVisibility(id > 0 ? View.VISIBLE : View.GONE);
             return view;
         }
 
         public class ViewHolder {
             ImageView icon;
-            ImageView user;
+            //ImageView user;
             TextView title;
             TextView packageName;
         }
