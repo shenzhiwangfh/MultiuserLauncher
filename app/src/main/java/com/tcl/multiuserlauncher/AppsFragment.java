@@ -29,7 +29,7 @@ public class AppsFragment extends Fragment {
     private final static String TAG = "AppsFragment";
 
     private List<LauncherActivityInfo> apps;
-    private int id = 0;
+    //private int id = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,9 +41,9 @@ public class AppsFragment extends Fragment {
         this.apps = apps;
     }
 
-    public void setUser(UserHandle user) {
-        id = UserManagerCompat.getIdentifier(user);
-    }
+    //public void setUser(UserHandle user) {
+    //    id = UserManagerCompat.getIdentifier(user);
+    //}
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

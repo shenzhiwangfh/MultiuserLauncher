@@ -1,14 +1,18 @@
 package com.tcl.multiuserlauncher;
 
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
 import android.os.UserHandle;
+import android.service.wallpaper.WallpaperService;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initMultiuser();
 
+        WallpaperManager manager = (WallpaperManager) this.getSystemService(Context.WALLPAPER_SERVICE);
+        int width = manager.getDesiredMinimumWidth();
+        int height = manager.getDesiredMinimumHeight();
+        Log.e(TAG, "width=" + width + ",height=" + height);
+        //manager.suggestDesiredDimensions(911, 1620);
+
+
         PagerSlidingTabStrip tabs = findViewById(R.id.tabs);
         ViewPager viewPager = findViewById(R.id.viewpager);
 
@@ -42,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             AppsFragment fragment = new AppsFragment();
             List<LauncherActivityInfo> apps = maps.get(user);
             fragment.setApps(apps);
-            fragment.setUser(user);
+            //fragment.setUser(user);
             fragments.add(fragment);
         }
 
